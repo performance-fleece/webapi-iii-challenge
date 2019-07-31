@@ -16,16 +16,16 @@ class UserDisplay extends React.Component {
       <div>
         TESTING
         <h3>{this.props.user.name}</h3>
-        {/* <PostList posts={this.props.posts.posts} /> */}
-        {/* {this.props.posts.posts.map(post => {
+        {/* <PostList posts={this.props.postdata.posts} /> */}
+        {this.props.postdata.posts.map(post => {
           return <PostCards post={post} id={post.id} />;
-        })} */}
+        })}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ posts, user }) => ({ posts, user });
+const mapStateToProps = ({ postdata, user }) => ({ postdata, user });
 
 export default connect(
   mapStateToProps,

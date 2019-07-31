@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   users: [],
-  posts: [],
+  postdata: [],
   user: [],
   fetchingUsers: false,
   fetchingPosts: false,
@@ -54,7 +54,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingPosts: false,
-        posts: action.payload
+        postdata: action.payload
       };
     }
     case FETCH_POSTS_FAIL: {
