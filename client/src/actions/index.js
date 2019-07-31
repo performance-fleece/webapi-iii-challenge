@@ -8,6 +8,22 @@ export const FETCH_POSTS_START = 'FETCH_POSTS_START';
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
 export const FETCH_POSTS_FAIL = 'FETCH_POSTS_FAIL';
 
+export const GET_USER_START = 'GET_USER_START';
+export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
+export const GET_USER_FAIL = 'GET_USER_FAIL';
+
+export const getUser = userId => dispatch => {
+  dispatch({ type: GET_USER_START });
+  axios
+    .get(`http://localhost:4000/api/users/${userId}`)
+    .then(res => {
+      dispatch({ type: GET_USER_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: GET_USER_FAIL, payload: err.message });
+    });
+};
+
 export const fetchUsers = () => dispatch => {
   dispatch({ type: FETCH_USERS_START });
   axios
@@ -26,7 +42,7 @@ export const fetchUserPosts = userId => dispatch => {
   axios
     .get(`http://localhost:4000/api/users/${userId}/posts`)
     .then(res => {
-      dispatch({ type: FETCH_POSTS_START, payload: res.data });
+      dispatch({ type: FETCH_POSTS_SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.log(err);
