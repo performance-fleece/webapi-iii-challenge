@@ -17,9 +17,9 @@ class UserDisplay extends React.Component {
         TESTING
         <h3>{this.props.user.name}</h3>
         {/* <PostList posts={this.props.postdata.posts} /> */}
-        {this.props.postdata.posts.map(post => {
-          return <PostCards post={post} id={post.id} />;
-        })}
+        {/* {this.props.postdata.posts.map(post => {
+          return <PostCards text={post.text} id={post.id} />;
+        })} */}
       </div>
     );
   }
