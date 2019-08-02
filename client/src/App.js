@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { fetchUsers } from './actions';
+import { fetchUsers, fetchUserPosts } from './actions';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -27,9 +27,13 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ users }) => ({ users });
+const mapStateToProps = ({ users, postdata, postsFetched }) => ({
+  users,
+  postdata,
+  postsFetched
+});
 
 export default connect(
   mapStateToProps,
-  { fetchUsers }
+  { fetchUsers, fetchUserPosts }
 )(App);

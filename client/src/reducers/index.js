@@ -12,8 +12,9 @@ import {
 
 const initialState = {
   users: [],
-  postdata: [],
   user: [],
+  postdata: [],
+  postsFetched: false,
   fetchingUsers: false,
   fetchingPosts: false,
   fetchingUser: false,
@@ -47,12 +48,14 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingPosts: true,
+        postsFetched: false,
         error: ''
       };
     }
     case FETCH_POSTS_SUCCESS: {
       return {
         ...state,
+        postsFetched: true,
         fetchingPosts: false,
         postdata: action.payload
       };
@@ -60,6 +63,7 @@ const rootReducer = (state = initialState, action) => {
     case FETCH_POSTS_FAIL: {
       return {
         ...state,
+        postsFetched: false,
         fetchingPosts: false,
         error: action.payload
       };
