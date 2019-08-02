@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { fetchUserPosts, getUser } from '../actions';
 import PostCards from './PostCards';
-import PostList from './PostList';
 
 const Posts = styled.div`
   display: flex;
@@ -27,7 +26,6 @@ class UserDisplay extends React.Component {
 
     return (
       <div>
-        TESTING
         <h3>{this.props.user.name}</h3>
         {this.props.postsFetched ? (
           <Posts>
